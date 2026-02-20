@@ -2,24 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\StoresService;
+use App\Services\StoresService;
 use Illuminate\Http\Request;
 
 class StoresController extends Controller
 {
-    private StoresService $service;
-
-    /**
-     * Summary of __construct
-     * @param StoresService $service
-     */
-    public function __construct(StoresService $service)
+    public function __invoke(Request $request, StoresService $service)
     {
-        $this->service = $service;
-    }
-
-    public function __invoke()
-    {
-        return $this->service->getStores();
+        return response()->json(['data' => $service->getStores()], 200);
     }
 }
