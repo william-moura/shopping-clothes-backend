@@ -4,5 +4,5 @@ namespace App\Contracts\Repositories;
 
 interface StoresRepositoryInterface
 {
-    public function getStores();
+    public function getStores(): array;
 }

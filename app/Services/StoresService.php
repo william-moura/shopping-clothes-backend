@@ -1,19 +1,22 @@
 <?php
 
-namespace App;
+namespace App\Services;
+
+use App\Contracts\Repositories\StoresRepositoryInterface;
 
 class StoresService
 {
+    private StoresRepositoryInterface $repository;
     /**
      * Create a new class instance.
      */
-    public function __construct()
+    public function __construct(StoresRepositoryInterface $repository)
     {
-        //
+        $this->repository = $repository;
     }
 
     public function getStores()
     {
-        return [];
+        return $this->repository->getStores();
     }
 }
